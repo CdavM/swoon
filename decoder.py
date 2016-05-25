@@ -69,6 +69,7 @@ class Decoder:
             frequency_band_min_channel = 36
         else:
             print("frequency band not recognized")
+            return
 
         try:
             for radio in self.json["core.wireless"]["radios"]:
