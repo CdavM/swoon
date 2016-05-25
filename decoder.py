@@ -72,8 +72,10 @@ class Decoder:
 
         try:
             for radio in self.json["core.wireless"]["radios"]:
-                for neighbor in radio["survey"]:
+                for neighbor in self.json["core.wireless"]["radios"][str(radio)]["survey"]:
                     if neighbor["channel"] <= frequency_band_max_channel and neighbor["channel"] >= frequency_band_min_channel:
                         return self.json["core.wireless"]["radios"][radio]["survey"]
+        except KeyError:
+            pass
         except NameError:
             print("Error parsing JSON file for " + str(self.filename))
