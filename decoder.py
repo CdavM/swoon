@@ -9,7 +9,17 @@ class Decoder:
         self.file = open(filename,'r')
         self.json = json.load(self.file)
 
-
+    def getNodeIP(self):
+        """
+        returns an IP of the node
+        :return: a string representing the IP address
+        """
+        try:
+            return self.json["core.interfaces"]["br-lan"]["addresses"][0]["address"]
+        except KeyError:
+            return "IP address not found"
+        except NameError:
+            return "IP address not found"
 
     def getNodeModel(self):
         try:
@@ -42,6 +52,9 @@ class Decoder:
                     return self.json["core.wireless"]["interfaces"][interface]["signal"]-self.json["core.wireless"]["interfaces"][interface]["noise"]
         except NameError:
             print("Error parsing JSON file for " + str(self.filename))
+        except KeyError:
+            print("no SNR available for " + str(self.getNodeIP()))
+            return 0
 
     def getNodeBSSID(self, frequency_band="2"):
         """
