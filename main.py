@@ -19,6 +19,15 @@ class NodeSociety:
             SNR_list[node.getNodeIP()] = node.getNodeSNR()
         return numpy.mean([SNR_list[key] for key in SNR_list])
 
+    def optimizeSocialSNR(self, frequency_band="2"):
+        """
+        returns a list of nodes with optimal channels
+        :param frequency_band: either "2" or "5", corresponding to 2.4GHz and 5GHz.
+        :return: a dictionary of nodes with an associated channel that optimizes Social SNR
+        """
+        #TODO: implement
+        return self.node_list
+
 
 ip_list = []
 for i in range(40,54):
