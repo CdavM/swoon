@@ -9,6 +9,8 @@ class Decoder:
         self.file = open(filename,'r')
         self.json = json.load(self.file)
 
+
+
     def getNodeModel(self):
         try:
             return self.json["core.general"]["hardware"]["model"]
