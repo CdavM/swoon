@@ -1,2 +1,2 @@
 #!/bin/sh
-cp -r ~/coding/node/nodewatcher/modules/monitor/http/swoon/* ~/coding/swoon/modules/monitor/http/swoon/
+cp -r ~/coding/node/nodewatcher/modules/monitor/http/survey/* ~/coding/swoon/modules/monitor/http/survey/
